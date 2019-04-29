@@ -50,7 +50,6 @@ public class Car implements Transport {
         LOG.info("There are " + countOfWheels + " wheels in the car");
         LOG.info("Speed in car is " + speed);
         LOG.info("Mileage in car is " + mileage + " km.");
-
     }
 
     @PostConstruct
