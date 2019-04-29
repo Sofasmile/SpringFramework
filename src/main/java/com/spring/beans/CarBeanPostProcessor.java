@@ -7,12 +7,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CarBeanPostProcessor implements BeanPostProcessor {
-    private static Logger log = Logger.getLogger(Car.class.getName());
+    private static final Logger LOG = Logger.getLogger(Car.class.getName());
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof Car) {
-            log.info("In postProcessAfterInitialization " + bean);
+            LOG.info("In postProcessAfterInitialization " + bean);
         }
         return bean;
     }
@@ -20,7 +20,7 @@ public class CarBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof Car) {
-            log.info("In postProcessBeforeInitialization " + bean);
+            LOG.info("In postProcessBeforeInitialization " + bean);
         }
         return bean;
     }

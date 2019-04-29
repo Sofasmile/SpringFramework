@@ -5,12 +5,12 @@ import org.springframework.stereotype.Component;
 
 @Component("summerWheel")
 public class SummerWheel implements Wheel {
-    private static Logger log = Logger.getLogger(SummerWheel.class.getName());
+    private static final Logger LOG = Logger.getLogger(SummerWheel.class.getName());
 
     private static final int DIAMETER = 60;
 
     @Override
     public void diameter() {
-        log.info("It is summer wheel with diameter: " + DIAMETER);
+        LOG.info("It is summer wheel with diameter: " + DIAMETER);
     }
 }

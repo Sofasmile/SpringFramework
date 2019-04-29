@@ -1,6 +1,7 @@
 package com.spring.beans;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,11 @@ import javax.annotation.PreDestroy;
 @Setter
 @Getter
 @Component
+@NoArgsConstructor
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @PropertySource({"classpath:spring/car.properties"})
 public class Car implements Transport {
-    private static Logger log = Logger.getLogger(Car.class.getName());
+    private static final Logger LOG = Logger.getLogger(Car.class.getName());
 
     @Value("${mileage}")
     private int mileage;
@@ -35,10 +37,6 @@ public class Car implements Transport {
     @Qualifier("winterWheel")
     private Wheel wheel;
 
-    public Car() {
-
-    }
-
     public Car(Wheel wheel, int countOfWheels, int speed, int mileage) {
         this.wheel = wheel;
         this.countOfWheels = countOfWheels;
@@ -49,19 +47,19 @@ public class Car implements Transport {
     @Override
     public void move() {
         wheel.diameter();
-        log.info("There are " + countOfWheels + " wheels in the car");
-        log.info("Speed in car is " + speed);
-        log.info("Mileage in car is " + mileage + " km.");
+        LOG.info("There are " + countOfWheels + " wheels in the car");
+        LOG.info("Speed in car is " + speed);
+        LOG.info("Mileage in car is " + mileage + " km.");
 
     }
 
     @PostConstruct
     private void init() {
-        log.info("Car is init!");
+        LOG.info("Car is init!");
     }
 
     @PreDestroy
     private void preDestroy() {
-        log.info("Car is destroy!");
+        LOG.info("Car is destroy!");
     }
 }
