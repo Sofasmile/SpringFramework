@@ -6,7 +6,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component("winterWheel")
+@Component()
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class WinterWheel implements Wheel {
     private static final Logger LOG = Logger.getLogger(WinterWheel.class.getName());

@@ -3,7 +3,7 @@ package com.spring.beans;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-@Component("summerWheel")
+@Component()
 public class SummerWheel implements Wheel {
     private static final Logger LOG = Logger.getLogger(SummerWheel.class.getName());
 
