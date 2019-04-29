@@ -1,5 +1,6 @@
 package com.spring.beans;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,6 +20,7 @@ import javax.annotation.PreDestroy;
 @Getter
 @Component
 @NoArgsConstructor
+@AllArgsConstructor
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @PropertySource({"classpath:spring/car.properties"})
 public class Car implements Transport {
@@ -36,13 +38,6 @@ public class Car implements Transport {
     @Autowired
     @Qualifier("winterWheel")
     private Wheel wheel;
-
-    public Car(Wheel wheel, int countOfWheels, int speed, int mileage) {
-        this.wheel = wheel;
-        this.countOfWheels = countOfWheels;
-        this.speed = speed;
-        this.mileage = mileage;
-    }
 
     @Override
     public void move() {

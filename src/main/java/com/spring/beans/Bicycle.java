@@ -1,5 +1,6 @@
 package com.spring.beans;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Component
 @NoArgsConstructor
+@AllArgsConstructor
 @PropertySource({"classpath:spring/bicycle.properties"})
 public class Bicycle implements Transport {
     private final static Logger LOG = Logger.getLogger(Car.class.getName());
@@ -27,12 +29,6 @@ public class Bicycle implements Transport {
     @Autowired
     @Qualifier("summerWheel")
     private Wheel wheel;
-
-    public Bicycle(Wheel wheel, int countOfWheels, int speed) {
-        this.wheel = wheel;
-        this.countOfWheels = countOfWheels;
-        this.speed = speed;
-    }
 
     @Override
     public void move() {
